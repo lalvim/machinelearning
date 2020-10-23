@@ -36,14 +36,14 @@ md" ### Função de custo"
 
 # ╔═╡ d8c3e0d8-1485-11eb-3eab-a11e3d31269f
 
-md"$J(\theta)= \frac{1}{2m}\sum_{i=1}^{n}{(H_{\theta}(X_i) - y_i)²} = \frac{1}{2m}\sum_{i=1}^{n}{(X_i\theta - y_i)²} = J_2$"
+md"$J(\theta)= \frac{1}{2n}\sum_{i=1}^{n}{(H_{\theta}(X_i) - y_i)²} = \frac{1}{2n}\sum_{i=1}^{n}{(X_i\theta - y_i)²} = J_2$"
 
 
 # ╔═╡ be81b7b2-148b-11eb-222c-135499b083cf
 md"que pode ser expandido ainda mais na forma: "
 
 # ╔═╡ d16ba126-148b-11eb-388b-ed88f5dc2099
-md"$= \frac{1}{2m}\sum_{i=1}^{n}{(\sum_{j=1}^{m}X_{i}^{(j)}\theta_{j} - y_i)²} = J_1$"
+md"$= \frac{1}{2n}\sum_{i=1}^{n}{(\sum_{j=1}^{m}X_{i}^{(j)}\theta_{j} - y_i)²} = J_1$"
 
 # ╔═╡ 1980e48e-148d-11eb-282a-155aa6620659
 md"Podemos ainda calcular toda a função de custo apenas por operações de matrizes e vetores sem um laço de repetição explícito da seguinte forma:"
@@ -91,9 +91,9 @@ md" Abaixo temos um exemplo de teste da função de custo."
 
 # ╔═╡ 48f06c34-1405-11eb-067e-cbe31a8e3cf3
 begin
-	Θ = @SMatrix [0. 4.] 
-	χ = @SMatrix [1 50.;1 60.;1 100.; 1 200.]
-	γ = @SMatrix [200  ;   240  ;   400; 800]
+	Θ =  @SMatrix [0. 4.] 
+	χ =  @SMatrix [1 50.;1 60.;1 100.; 1 200.]
+	γ =  @SMatrix [200  ;   240  ;   400; 800]
 	J₁(Θ,χ,γ),J₂(Θ,χ,γ),J₃(Θ,χ,γ)
 end	
 
@@ -188,12 +188,12 @@ end
 # ╠═cdfe994c-1415-11eb-01c0-13fd220aaa92
 # ╠═7ee07dd4-149d-11eb-1f6d-2d565ee61a12
 # ╟─7fff1162-149d-11eb-2ec6-c3ad197a6d4c
-# ╠═6aa7e186-14a2-11eb-287d-35f60c88cc0b
-# ╠═d357e744-14a2-11eb-2652-c35400acb3cf
+# ╟─6aa7e186-14a2-11eb-287d-35f60c88cc0b
+# ╟─d357e744-14a2-11eb-2652-c35400acb3cf
 # ╠═8ef513d8-14a2-11eb-3f6e-5b2f0a09363e
 # ╠═7c888c54-14a5-11eb-315f-3d32578eaf32
 # ╠═bfd7693a-14a5-11eb-3479-057e03ef43f4
 # ╠═150cec5a-14aa-11eb-2be7-390b12287032
 # ╠═f17bfc22-14b3-11eb-319a-47522cda243c
-# ╟─3ac52d04-14b4-11eb-17cf-1b2f8531335d
+# ╠═3ac52d04-14b4-11eb-17cf-1b2f8531335d
 # ╠═7fa33e30-14ba-11eb-2543-379982e50d7e
