@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.4
+# v0.12.6
 
 using Markdown
 using InteractiveUtils
@@ -26,17 +26,34 @@ md"Seja $\theta$ um vetor linha com $m$ elementos tal que $m$ corresponde ao nú
 md"Seja $y$ nosso vetor alvo em que representamos o i-ésimo elemento por $y_i$. Na nossa linguagem representamos por $y[i]$."
 
 # ╔═╡ 794e1306-1487-11eb-203c-37766708b1a2
-md" ### Modelo linear"
+md" ### Hipótese e modelo linear"
 
 # ╔═╡ 7882a5fe-1487-11eb-3f45-fd54863cdfbd
-md"$H_{\theta}(X_i) = \sum_{j}^{m}{X_{i}^{(j)} \theta^{(j)}} = X_i\theta$"
+md"$H_{\theta}(X_i) = \sum_{j}^{m}{x_{i}^{(j)} \theta^{(j)}} = X_i\theta^{T}$"
+
+# ╔═╡ 272f710e-1f99-11eb-21f0-d98d7f2445c8
+md"Exemplificando o produto de vetores, nossa hipótese faria o seguinte cálculo para um exemplo $X_i = \begin{bmatrix} 1 & 500 \end{bmatrix}$ e um vetor de parâmetros $\theta = \begin{bmatrix}
+    0.5 \\
+    1.0
+\end{bmatrix}$:"
+
+# ╔═╡ 2821e75e-1f99-11eb-2f10-831050151433
+md"e.g. $H_{\theta}(X_i) = \begin{bmatrix}
+    1 & 500 
+  \end{bmatrix}\begin{bmatrix}
+    0.5 \\
+    1.0
+\end{bmatrix} = 500.5$"
+
+# ╔═╡ 295c3c20-1f99-11eb-20df-1b793c23e91f
+md"Note que o resultado é um escalar, pois estamos estimando um valor contínuo (problema de regressão)."
 
 # ╔═╡ f6213c24-1486-11eb-0981-ad6addc2a8ef
 md" ### Função de custo"
 
 # ╔═╡ d8c3e0d8-1485-11eb-3eab-a11e3d31269f
 
-md"$J(\theta)= \frac{1}{2n}\sum_{i=1}^{n}{(H_{\theta}(X_i) - y_i)²} = \frac{1}{2n}\sum_{i=1}^{n}{(X_i\theta - y_i)²} = J_2$"
+md"$J(\theta)= \frac{1}{2n}\sum_{i=1}^{n}{(H_{\theta}(X_i) - y_i)²} = \frac{1}{2n}\sum_{i=1}^{n}{(X_i\theta^T - y_i)²} = J_2$"
 
 
 # ╔═╡ be81b7b2-148b-11eb-222c-135499b083cf
@@ -81,7 +98,7 @@ function J₂(Θ,χ,γ)
 end 
 
 # ╔═╡ 329221e4-1498-11eb-0569-d9bde9e62e1a
-md" É possível ainda vetorizar todo o cálculo sem precisar fazer um loop explícito."
+md" É possível ainda vetorizar todo o cálculo sem precisar fazer um loop explícito. Desta maneira, geramos em uma multiplicação de matrizes, um vetor de predições com a mesma dimensão da saída. Após isto, subtraímos elemento a elemento. Após isto, elevamos cada elemento ao quadrado e depois tiramos uma média."
 
 # ╔═╡ 19392bd6-1405-11eb-3022-bbaecf23c544
 J₃(Θ,χ,γ) = .5μ((χ*Θ' .- γ).^2) 
@@ -161,16 +178,16 @@ begin
 
 end
 
-# ╔═╡ 7fa33e30-14ba-11eb-2543-379982e50d7e
-
-
 # ╔═╡ Cell order:
-# ╟─10c7a648-1488-11eb-0f9c-c3bfe711a449
-# ╟─10170496-1488-11eb-0882-df72e258d63c
-# ╟─3996c40e-1489-11eb-266a-95abbb9cd199
-# ╟─391d5e2a-1489-11eb-15d4-77bf4828cfcd
+# ╠═10c7a648-1488-11eb-0f9c-c3bfe711a449
+# ╠═10170496-1488-11eb-0882-df72e258d63c
+# ╠═3996c40e-1489-11eb-266a-95abbb9cd199
+# ╠═391d5e2a-1489-11eb-15d4-77bf4828cfcd
 # ╟─794e1306-1487-11eb-203c-37766708b1a2
-# ╟─7882a5fe-1487-11eb-3f45-fd54863cdfbd
+# ╠═7882a5fe-1487-11eb-3f45-fd54863cdfbd
+# ╟─272f710e-1f99-11eb-21f0-d98d7f2445c8
+# ╟─2821e75e-1f99-11eb-2f10-831050151433
+# ╟─295c3c20-1f99-11eb-20df-1b793c23e91f
 # ╟─f6213c24-1486-11eb-0981-ad6addc2a8ef
 # ╟─d8c3e0d8-1485-11eb-3eab-a11e3d31269f
 # ╟─be81b7b2-148b-11eb-222c-135499b083cf
@@ -179,7 +196,7 @@ end
 # ╠═b3ed93fc-1406-11eb-34d4-31acb0c7d641
 # ╠═35a275a0-1402-11eb-3ce4-fba2f21b24d6
 # ╠═1c4d435e-140d-11eb-1585-476688f1ec0c
-# ╟─329221e4-1498-11eb-0569-d9bde9e62e1a
+# ╠═329221e4-1498-11eb-0569-d9bde9e62e1a
 # ╠═19392bd6-1405-11eb-3022-bbaecf23c544
 # ╟─7b5e9f88-1498-11eb-2acf-a139d4c8e8fb
 # ╠═48f06c34-1405-11eb-067e-cbe31a8e3cf3
@@ -188,7 +205,7 @@ end
 # ╠═cdfe994c-1415-11eb-01c0-13fd220aaa92
 # ╠═7ee07dd4-149d-11eb-1f6d-2d565ee61a12
 # ╟─7fff1162-149d-11eb-2ec6-c3ad197a6d4c
-# ╟─6aa7e186-14a2-11eb-287d-35f60c88cc0b
+# ╠═6aa7e186-14a2-11eb-287d-35f60c88cc0b
 # ╟─d357e744-14a2-11eb-2652-c35400acb3cf
 # ╠═8ef513d8-14a2-11eb-3f6e-5b2f0a09363e
 # ╠═7c888c54-14a5-11eb-315f-3d32578eaf32
@@ -196,4 +213,3 @@ end
 # ╠═150cec5a-14aa-11eb-2be7-390b12287032
 # ╠═f17bfc22-14b3-11eb-319a-47522cda243c
 # ╠═3ac52d04-14b4-11eb-17cf-1b2f8531335d
-# ╠═7fa33e30-14ba-11eb-2543-379982e50d7e
