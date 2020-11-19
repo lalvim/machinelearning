@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.12.6
+# v0.12.10
 
 using Markdown
 using InteractiveUtils
@@ -244,7 +244,7 @@ train(χₚ,γₚ)
 # ╠═74604cb2-1e05-11eb-19ef-09fd04dc52e3
 # ╟─b7913600-1e0c-11eb-362e-0b4b9ef9d1aa
 # ╟─d1a88a00-1f8f-11eb-36b7-f39dabee0657
-# ╟─fa0bd460-1e23-11eb-131f-f31bec373c07
+# ╠═fa0bd460-1e23-11eb-131f-f31bec373c07
 # ╟─b405694e-1f8f-11eb-0fad-5d0c3527d206
 # ╟─d497051e-1f94-11eb-2ccb-a7d3e52570d1
 # ╠═cc73d620-1f8f-11eb-357d-b19b50c19280
