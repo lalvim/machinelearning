@@ -202,7 +202,7 @@ function classify(X::Array{Float64,2},θ::Array{Float64,2})
 end	
 
 # ╔═╡ 803ccbc0-2b53-11eb-1399-cf96cbb67727
-classify([1 0.3 0.3],θᵏ)
+classify([1 0.5 0.4],θᵏ)
 
 # ╔═╡ 37c52e40-1e48-11eb-1e13-7ba1bebfabc4
 md"### Depuração "
@@ -214,10 +214,10 @@ md" Costumo colocar alguma variáveis soltas para que eu veja se está tudo corr
 r[end,:]
 
 # ╔═╡ 29b04780-1e44-11eb-3bcf-8b5f121d157f
-J(H(θᵏ,χₚ),	γ) 
+J(H(θᵏ,χ),	γ) 
 
 # ╔═╡ f81b6012-2b4a-11eb-173a-1bf763fbd71d
-H(θᵏ,χₚ)
+H(θᵏ,χ)
 
 # ╔═╡ d0de29e0-1e36-11eb-398c-5f0b55ea281e
 θᵏ
@@ -235,7 +235,7 @@ H(θᵏ,χₚ)
 # ╟─f9af3a70-1dec-11eb-34f0-91b7fc591b87
 # ╟─78d2c0e0-1f98-11eb-06bc-b51c3b4b9f35
 # ╟─2e7709e0-1ded-11eb-2abd-d770bf1afe8a
-# ╟─9da10890-2aac-11eb-0069-15538564fb84
+# ╠═9da10890-2aac-11eb-0069-15538564fb84
 # ╟─b05f9930-1f97-11eb-0083-07ebd21313e0
 # ╟─cbf998e0-1f96-11eb-0a8b-a3bf631bfe02
 # ╟─4cc76c80-1f98-11eb-0c70-29aec0b92ac4
