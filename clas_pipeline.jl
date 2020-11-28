@@ -140,7 +140,7 @@ md"Aqui analisamos cada predição e cada target. Este tipo de análise é mais 
 md"Aqui pegamos as classes e probabilidades"
 
 # ╔═╡ 152f7100-29a7-11eb-2300-735ca72b15c3
-preds = predict(pred_machine, rows=test);
+preds = predict(pred_machine, rows=test)
 
 # ╔═╡ 275bab42-2dbd-11eb-1bd7-a1c0cb2965a7
 md"Pegando probabilidades da predição por classe" 
@@ -153,7 +153,7 @@ end
 
 # ╔═╡ d4536cb0-2d9b-11eb-16f7-993d0065c683
 #mode.(ŷ)
-ŷ = predict_mode(pred_machine,rows = test);
+ŷ = predict_mode(pred_machine,rows = test)
 
 # ╔═╡ 35b079a0-2d9f-11eb-0fa6-1bb075367008
 measures(matching(y))
@@ -195,7 +195,7 @@ md"#### Métricas para limiares distintos"
 tprs, fprs, ts = roc_curve(preds,y[test]);
 
 # ╔═╡ 96c67790-2e07-11eb-0000-19536e55469e
-ts
+ts[180]
 
 # ╔═╡ 903e2090-2dc5-11eb-2855-bfc16c6145b6
 md" Área embaixo da curva"
@@ -267,7 +267,7 @@ end
 # ╟─323d2620-29c0-11eb-258a-4703b4f5a0d2
 # ╟─e57688a2-2a90-11eb-2272-3d9898bf4375
 # ╠═fca39122-29a6-11eb-3b25-c7f0df7fc68f
-# ╟─287ae7e0-2a91-11eb-0d5b-b138443bdc29
+# ╠═287ae7e0-2a91-11eb-0d5b-b138443bdc29
 # ╠═fc474050-29a6-11eb-1fbd-87a88d38525a
 # ╟─4449f8d0-29b5-11eb-3f83-c352d034ecb2
 # ╟─91918630-2a91-11eb-1113-43b18086f208
@@ -294,7 +294,7 @@ end
 # ╠═96c67790-2e07-11eb-0000-19536e55469e
 # ╟─903e2090-2dc5-11eb-2855-bfc16c6145b6
 # ╠═58f2c540-2d9e-11eb-3a14-0931bcd2cc5d
-# ╠═c29c1380-29b5-11eb-254c-2d026e15f903
+# ╟─c29c1380-29b5-11eb-254c-2d026e15f903
 # ╟─89d06380-29bf-11eb-0d5b-4533c94745d5
 # ╟─8b3ac8f0-29bf-11eb-274e-f7b07eb35e7c
 # ╟─1e35c150-29de-11eb-0069-cb75699b6d61
